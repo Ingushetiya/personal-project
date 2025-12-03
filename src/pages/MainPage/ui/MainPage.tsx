@@ -1,12 +1,5 @@
 const MainPage = () => {
-    console.log('qweqwew');
-
-    return (
-        <div>
-            MainPage
-            <button>vdkv</button>
-        </div>
-    );
+    return <div>MainPage</div>;
 };
 
 export default MainPage;
