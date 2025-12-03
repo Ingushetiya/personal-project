@@ -8,11 +8,10 @@ import './styles/index.scss';
 import { MainPage } from 'pages/MainPage';
 
 const App = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     return (
         <div className={classNames('app', {}, [theme])}>
             <Navbar />
-            <button onClick={toggleTheme}>toggle</button>
             <AppRouter />
         </div>
     );

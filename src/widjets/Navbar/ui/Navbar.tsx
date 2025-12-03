@@ -1,16 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './Navbar.module.scss';
+import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { ThemeSwitcher } from 'widjets/ThemeSwitcher';
 interface NavbarProps {
     className?: string;
 }
 const Navbar = ({ className }: NavbarProps) => {
     return (
-        <div className={classNames(styles.navbar, {}, [className])}>
-            <Link to={'/'}>Home</Link>
-            <Link to={'/about'}>About</Link>
+        <div className={classNames(styles.navbar)}>
+            <ThemeSwitcher />
+            <div className={styles.links}>
+                <AppLink theme={AppLinkTheme.SECONDARY} className={styles.mainLink} to={'/'}>
+                    Home
+                </AppLink>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={'/about'}>
+                    About
+                </AppLink>
+            </div>
         </div>
     );
 };
