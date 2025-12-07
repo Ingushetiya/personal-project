@@ -1,8 +1,9 @@
 import { render } from 'react-dom';
 
-import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/Providers/ThemeProvider';
+import 'shared/config/i18next/i18next';
+import App from 'app/App';
 
 render(
     <BrowserRouter>
