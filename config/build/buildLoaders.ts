@@ -2,6 +2,28 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+    const babelLoader = {
+        test: /\.(ts|tsx|jsx| js)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+            },
+        },
+    };
+
+    // const babelLoader = {
+    //     test: /\.(ts|tsx|jsx| js)$/,
+    //     exclude: /node_modules/,
+    //     use: {
+    //         loader: 'babel-loader',
+    //         options: {
+    //             cacheDirectory: true,
+    //         },
+    //     },
+    // };
+
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -42,5 +64,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    return [typescriptLoader, cssLoader, svgLoader, fileLoader];
+    return [babelLoader, typescriptLoader, cssLoader, svgLoader, fileLoader];
 }

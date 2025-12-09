@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTheme } from 'app/Providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import AppRouter from './Providers/router/ui/AppRouter';
