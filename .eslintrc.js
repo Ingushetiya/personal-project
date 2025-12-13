@@ -4,16 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:react-hooks/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:import/recommended',
-        'plugin:import/typescript',
-        'plugin:jsx-a11y/recommended',
-        'plugin:prettier/recommended', // должен быть последним
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -21,63 +12,27 @@ module.exports = {
         },
         ecmaVersion: 'latest',
         sourceType: 'module',
-        project: './tsconfig.json',
     },
-    plugins: ['react', 'react-hooks', '@typescript-eslint', 'import', 'jsx-a11y', 'prettier'],
+    plugins: ['react', '@typescript-eslint', 'i18next'],
     rules: {
-        // Основные правила
-        'react/react-in-jsx-scope': 'off', // не требуется в React 17+
-
-        // Правила для TypeScript
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/no-explicit-any': 'warn',
-        '@typescript-eslint/no-unused-vars': [
-            'error',
-            {
-                argsIgnorePattern: '^_',
-                varsIgnorePattern: '^_',
-            },
-        ],
-
-        // Правила для React
-        'react/prop-types': 'off', // не нужно с TypeScript
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'warn',
-
-        // Правила импортов
-        'import/order': [
-            'error',
-            {
-                groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-                'newlines-between': 'always',
-                alphabetize: {
-                    order: 'asc',
-                    caseInsensitive: true,
-                },
-            },
-        ],
-        'import/no-unresolved': 'off', // TypeScript сам проверяет
-
-        // Другие полезные правила
-        'no-console': ['warn', { allow: ['warn', 'error'] }],
-        'prefer-const': 'error',
-        'no-var': 'error',
-        eqeqeq: ['error', 'always'],
-        curly: ['error', 'all'],
+        'react/jsx-indent': [2, 4],
+        'react/jsx-indent-props': [2, 4],
+        indent: [2, 4],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'import/no-unresolved': 'off',
+        'import/prefer-default-export': 'off',
+        'no-unused-vars': 'warn',
+        'react/require-default-props': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/jsx-props-no-spreading': 'warn',
+        'react/function-component-definition': 'off',
+        'no-shadow': 'off',
+        'import/extensions': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'no-underscore-dangle': 'off',
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
     },
-    settings: {
-        react: {
-            version: 'detect', // автоматически определяет версию React
-        },
-        'import/resolver': {
-            typescript: {
-                project: './tsconfig.json',
-            },
-            node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx'],
-            },
-        },
+    globals: {
+        __IS_DEV__: true,
     },
-    ignorePatterns: ['node_modules', 'dist', 'build', 'coverage', '*.config.js', '*.config.ts'],
 };
