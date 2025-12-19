@@ -1,5 +1,6 @@
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -21,5 +22,9 @@ export const RouteConfig = {
     [AppRoutes.ABOUT]: {
         path: RoutePath.about,
         element: <AboutPage />,
+    },
+    [AppRoutes.NOT_FOUND]: {
+        path: RoutePath.not_found,
+        element: <NotFoundPage />,
     },
 };
