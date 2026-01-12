@@ -18,6 +18,14 @@
         "paths": {
             "*": ["./src/*"]
         }
+        // "paths": {
+        //     "shared/*": ["src/shared/*"],
+        //     "app/*": ["src/app/*"],
+        //     "entities/*": ["src/entities/*"],
+        //     "features/*": ["src/features/*"],
+        //     "widgets/*": ["src/widgets/*"],
+        //     "pages/*": ["src/pages/*"]
+        // }
     },
 
     "ts-node": {
@@ -25,6 +33,6 @@
             "module": "CommonJS"
         }
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "./config/jest/setupJest.ts"],
     "exclude": ["node_modules", "dist"]
 }

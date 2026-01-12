@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -19,11 +21,25 @@ export default {
     coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     moduleDirectories: ['node_modules'],
-    testMatch: [
-        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    testMatch: ['<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'],
     rootDir: '../../',
+    // setupFilesAfterEnv: ['<rootDir>/config/jest/setupJest.ts'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupJest.ts'],
+
+    moduleNameMapper: {
+        '\\.(svg)$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+            '<rootDir>/__mocks__/fileMock.js',
+        '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+
+        '^shared/(.*)$': '<rootDir>/src/shared/$1',
+        '^app/(.*)$': '<rootDir>/src/app/$1',
+        '^entities/(.*)$': '<rootDir>/src/entities/$1',
+        '^features/(.*)$': '<rootDir>/src/features/$1',
+        '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
+        '^pages/(.*)$': '<rootDir>/src/pages/$1',
+    },
+
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
