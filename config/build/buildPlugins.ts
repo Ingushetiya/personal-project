@@ -1,4 +1,3 @@
-import { ReactRefreshLoaderOptions } from './../../node_modules/@pmmmwh/react-refresh-webpack-plugin/types/loader/types.d';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
