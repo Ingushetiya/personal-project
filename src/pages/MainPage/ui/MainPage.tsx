@@ -6,6 +6,9 @@ const MainPage = () => {
         <div>
             <div>{t('Главная страница')}</div>
             <div>{t('Машина')}</div>
+            <div>{t('Машина')}</div>
+            <div>{t('Машина')}</div>
+            <div>{t('Машина')}</div>
         </div>
     );
 };
