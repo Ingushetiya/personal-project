@@ -22,7 +22,7 @@ Primary.args = {
 export const Clear = Template.bind({});
 Clear.args = {
     children: 'Text',
-    theme: ButtonTheme.ClEAR,
+    theme: ButtonTheme.CLEAR,
 };
 
 export const Outline = Template.bind({});
