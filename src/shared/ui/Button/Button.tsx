@@ -1,23 +1,38 @@
-import React, { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import styles from './Button.module.scss';
+import { ButtonHTMLAttributes, FC } from 'react';
+import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-    ClEAR = 'clear',
+    CLEAR = 'clear',
     OUTLINE = 'outline',
-    PRIMARY = 'primary',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+
+export enum ButtonSize {
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
+}
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
 }
+
 const Button: FC<ButtonProps> = props => {
-    const { className, children, theme, ...otherProps } = props;
+    const { className, children, theme, square, size = ButtonSize.M, ...otherProps } = props;
+
+    const mods: Record<string, boolean> = {
+        [cls[theme]]: true,
+        [cls.square]: square,
+        [cls[size]]: true,
+    };
+
     return (
-        <button
-            {...otherProps}
-            className={classNames(styles.Button, {}, [className, styles[theme]])}
-        >
+        <button type="button" className={classNames(cls.Button, mods, [className])} {...otherProps}>
             {children}
         </button>
     );

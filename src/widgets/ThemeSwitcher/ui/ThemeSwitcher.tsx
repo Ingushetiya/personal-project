@@ -12,9 +12,10 @@ const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const { toggleTheme, theme } = useTheme();
     return (
         <Button
-            theme={ButtonTheme.ClEAR}
+            theme={ButtonTheme.CLEAR}
             onClick={toggleTheme}
-            className={classNames(styles.ThemeSwitcher, {}, [className])}>
+            className={classNames(styles.ThemeSwitcher, {}, [className])}
+        >
             {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
         </Button>
     );

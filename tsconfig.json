@@ -30,9 +30,38 @@
 
     "ts-node": {
         "compilerOptions": {
-            "module": "CommonJS"
+            "esm": true,
+            "experimentalSpecifierResolution": "node",
+            "module": "EsNext"
         }
     },
-    "include": ["src/**/*", "./config/jest/setupJest.ts"],
+    "include": ["./config/jest/setupTests.ts", "./src/**/*.ts", "./src/**/*.tsx"],
     "exclude": ["node_modules", "dist"]
 }
+
+// {
+//     "compilerOptions": {"src/**/*", "./config/jest/setupJest.ts"
+//         "outDir": "./dist/",
+//         "noImplicitAny": true,
+//         "module": "ESNext",
+//         "target": "es5",
+//         "jsx": "react-jsx",
+//         "allowJs": true,
+//         "moduleResolution": "node",
+//         "baseUrl": ".",
+//         "paths": {
+//             "*": ["./src/*"]
+//         },
+//         "esModuleInterop": true,
+//         "allowSyntheticDefaultImports": true,
+
+//         "typeRoots": ["./node_modules/@types"],
+//         "skipLibCheck": true
+//     },
+//     "ts-node": {
+//         "compilerOptions": {
+//             "module": "CommonJS"
+//         }
+//     },
+//     "include": ["./config/jest/setupTests.ts", "./src/**/*.ts", "./src/**/*.tsx"]
+// }
